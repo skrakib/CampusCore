@@ -1,0 +1,35 @@
+﻿@model CampusCore.Models.Student
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<h2>Add Student</h2>
+
+<form asp-action="Add" method="post">
+    <div>
+        <label>Name:</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div>
+        <label>Student Number:</label>
+        <input asp-for="StudentNumber" class="form-control" maxlength="7" />
+    </div>
+    <div>
+        <label>Registration Number:</label>
+        <input asp-for="RegistrationNumber" class="form-control" />
+    </div>
+    <div>
+        <label>Session:</label>
+        <input asp-for="Session" class="form-control" />
+    </div>
+    <div>
+        <label>Faculty:</label>
+        <select asp-for="FacultyId" class="form-control" asp-items="@(new SelectList(ViewBag.Faculties, "FacultyId", "Name"))">
+            <option value="">-- Select Faculty --</option>
+        </select>
+    </div>
+    <!-- Add other fields similarly -->
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
